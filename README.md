@@ -36,19 +36,18 @@ practical advancement gate failed. See the
 [prespecified protocol](docs/confirmatory-study-protocol.md), and the
 [amendment log](docs/amendments.md).
 
-The untouched sleep-telemetry and CAP corpora remain unopened. Because the
-primary test failed, they will not be interpreted as secondary confirmation
-under the original sequence. A crossing of the descriptive FROC curves at 95%
-recovery now motivates a separate frozen
-[external replication protocol](docs/external-95-replication-protocol.md).
-Sleep-telemetry placebo is its sole primary cohort. Temazepam and CAP remain
-sealed, and CAP can advance only if both external replication gates pass.
-
-That external test is now complete. At exactly 95% matched recovery,
+The external sleep-telemetry placebo test is also complete. It followed a
+separately frozen [external replication protocol](docs/external-95-replication-protocol.md).
+At exactly 95% matched recovery,
 `sync8_c0` produced 8.996 background events per eligible REM hour and the
 control produced 9.376. The clustered interval was wide, the rate ratio was
 0.960, and neither replication gate passed. CAP and temazepam remain unopened.
 See the [external results](docs/external-95-results.md).
+
+## Manuscript
+
+The two-column article source is under [`paper/`](paper/). It builds directly
+from the tracked result figure and does not require downloading raw EDF files.
 
 ## Analysis sequence
 
