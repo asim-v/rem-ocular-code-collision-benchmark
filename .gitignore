@@ -3,6 +3,7 @@ data/raw/
 data/extracted/
 data/derived/
 data/sleep-edf/
+data/confirmatory/
 
 # Local environments and caches
 .venv/

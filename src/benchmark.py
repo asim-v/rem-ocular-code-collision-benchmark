@@ -10,7 +10,7 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from hashlib import sha256
 import json
-from math import exp, log
+from math import exp
 from pathlib import Path
 import subprocess
 from typing import Iterable, Sequence

@@ -55,3 +55,36 @@ After that freeze, it can be fetched explicitly with:
 ```powershell
 python scripts/fetch_sleep_edf.py --split test
 ```
+
+## Confirmatory collision benchmark
+
+The confirmatory source recordings are never tracked. Two generated manifests
+record every selected file, official SHA-256 digest, cohort role and EOG
+derivation:
+
+- `config/sleep_edf_confirmatory_manifest.csv`;
+- `config/cap_normal_manifest.csv`.
+
+Their construction is reproducible from checksum-verified official metadata:
+
+```powershell
+python scripts/build_confirmatory_manifests.py --check
+```
+
+Downloads require an explicit cohort and are stored below
+`data/confirmatory/`:
+
+```powershell
+python scripts/fetch_confirmatory_data.py --cohort sc
+python scripts/fetch_confirmatory_data.py --cohort st-placebo
+python scripts/fetch_confirmatory_data.py --cohort cap-normal
+```
+
+Only `sc` may be opened for the primary run. The other runner stages refuse to
+open until their required tracked gate files exist. Retrieval alone does not
+constitute an analysis, but the ordered gates should still be followed to keep
+the scientific record simple.
+
+The independent CAP source is the ODC-By 1.0
+[CAP Sleep Database](https://physionet.org/content/capslpdb/1.0.0/), version
+1.0.0, DOI <https://doi.org/10.13026/C2VC79>.

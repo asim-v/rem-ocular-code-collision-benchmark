@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "study_id": "ocular-code-froc-confirmatory-2026-08-20",
+  "pilot_only": false,
+  "random_seed": 20260820,
+  "ordered_cohorts": [
+    {
+      "id": "sleep_edf_sc_confirmatory",
+      "manifest": "config/sleep_edf_confirmatory_manifest.csv",
+      "analysis_role": "primary_confirmation",
+      "open_after": "protocol_and_implementation_commit"
+    },
+    {
+      "id": "sleep_edf_st_placebo",
+      "manifest": "config/sleep_edf_confirmatory_manifest.csv",
+      "analysis_role": "threshold_transport",
+      "open_after": "sleep_edf_sc_results_and_thresholds_commit"
+    },
+    {
+      "id": "cap_normal_external",
+      "manifest": "config/cap_normal_manifest.csv",
+      "analysis_role": "independent_montage_replication",
+      "open_after": "cap_inferential_gate_commit"
+    }
+  ],
+  "code_sets": {
+    "primary_froc": [
+      "sync8_c0",
+      "iso8_matched"
+    ],
+    "exploratory_background_controls": [
+      "legacy_lrl",
+      "legacy_lrlr",
+      "legacy_lrlrlr",
+      "double_lrlr_pause",
+      "sync8_c1"
+    ]
+  },
+  "preprocessing": {
+    "target_sample_rate_hz": 100,
+    "filter_kind": "butterworth_sos_zero_phase",
+    "filter_order": 4,
+    "highpass_hz": 0.1,
+    "lowpass_hz": 8.0,
+    "resampling_kind": "polyphase_fir",
+    "calibration_mode": "trailing_robust_mad",
+    "calibration_seconds": 300.0,
+    "calibration_update_seconds": 30.0,
+    "minimum_calibration_seconds": 30.0
+  },
+  "exposure": {
+    "primary_scope": "expert_scored_rem",
+    "rem_boundary_margin_seconds": 2.0,
+    "exclude_nonfinite": true,
+    "flatline_minimum_seconds": 5.0,
+    "flatline_tolerance_uv": 0.0,
+    "exclude_by_code_like_morphology": false
+  },
+  "detector": {
+    "scan_step_seconds": 0.05,
+    "time_scales": [
+      0.8,
+      0.9,
+      1.0,
+      1.1,
+      1.2
+    ],
+    "score": "absolute_normalized_cross_correlation",
+    "minimum_candidate_score": 0.45,
+    "minimum_regression_amplitude_mad": 1.5,
+    "nms_seconds": 1.0,
+    "nms_before_final_threshold": true,
+    "match_tolerance_seconds": 0.75
+  },
+  "synthetic_injection": {
+    "interpretation": "engineering robustness only, not human sensitivity",
+    "primary_codes_only": true,
+    "anchors_per_recording": 20,
+    "minimum_anchor_separation_seconds": 60.0,
+    "primary_amplitude_mad": 4.0,
+    "primary_interval_jitter_fraction": 0.15,
+    "transition_seconds_range": [
+      0.08,
+      0.25
+    ],
+    "relative_plateau_amplitude_sd": 0.1,
+    "overshoot_fraction_range": [
+      0.0,
+      0.15
+    ],
+    "random_polarity": true,
+    "same_anchors_across_codes": true,
+    "same_perturbation_draws_across_primary_codes": true
+  },
+  "froc": {
+    "descriptive_score_grid_start": 0.45,
+    "descriptive_score_grid_stop": 0.95,
+    "descriptive_score_grid_step": 0.005,
+    "primary_recovery_target": 0.9,
+    "secondary_recovery_targets": [
+      0.85,
+      0.95
+    ],
+    "matched_threshold_rule": "largest observed injection-score threshold recovering at least the target proportion",
+    "may_use_background_counts_for_threshold": false,
+    "no_extrapolation": true
+  },
+  "inference": {
+    "primary_cohort": "sleep_edf_sc_confirmatory",
+    "primary_candidate": "sync8_c0",
+    "primary_control": "iso8_matched",
+    "primary_metric": "matched_froc_rate_difference_per_rem_hour_at_0.90_recovery",
+    "cluster_unit": "participant",
+    "bootstrap_replicates": 50000,
+    "bootstrap_seed": 20260820,
+    "confidence_level": 0.95,
+    "superiority_rule": "upper clustered 95% interval for candidate minus control is below zero",
+    "practical_advance_rate_ratio_maximum": 0.7,
+    "minimum_participants_target": 60,
+    "minimum_eligible_rem_hours_target": 150.0,
+    "minimum_primary_injections_target": 1200,
+    "optional_stopping": false,
+    "secondary_multiplicity": "Holm at family level 0.05 after primary gate"
+  },
+  "exploratory": {
+    "synthetic_amplitude_mad": [
+      2.0,
+      4.0,
+      6.0
+    ],
+    "synthetic_interval_jitter_fraction": [
+      0.05,
+      0.15,
+      0.25
+    ],
+    "full_night_ungated": true,
+    "automatic_rem_gate": false,
+    "telemetry_temazepam": true
+  }
+}

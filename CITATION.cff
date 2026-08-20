@@ -1,13 +1,13 @@
 cff-version: 1.2.0
-message: "If you use this software or pilot benchmark, please cite this repository."
+message: "If you use this software or benchmark, please cite this repository."
 title: "Background Collision Rates of Ocular Codes in REM EOG"
 type: software
 authors:
   - family-names: "Bazan Sanchez"
     given-names: "Javier Emilio"
     email: "bazan@ciencias.unam.mx"
-version: 0.1.0
-date-released: 2026-08-19
+version: 0.2.0
+date-released: 2026-08-20
 license: MIT
 repository-code: "https://github.com/asim-v/rem-ocular-code-collision-benchmark"
 keywords:

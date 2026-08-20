@@ -80,6 +80,14 @@ REM hour. Synthetic injections check software robustness only and are never
 called human sensitivity. See
 [the frozen pilot protocol](ocular-code-pilot-protocol.md).
 
+The pilot left a five-point difference in synthetic recovery between the two
+primary codes at their sealed test thresholds. The confirmatory study therefore
+uses matched-recovery FROC analysis, retains all candidates from a common score
+floor, and recalculates both thresholds inside every participant-clustered
+bootstrap replicate. Participants 00 through 11 and all of their other nights
+are excluded. See the
+[confirmatory protocol](confirmatory-study-protocol.md).
+
 ## Detector design
 
 The primary detector will be a frozen, interpretable EOG pipeline:

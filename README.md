@@ -5,9 +5,9 @@ continuous electrooculography from spontaneous REM sleep.
 
 ## Primary question
 
-Can prearranged ocular signals produced during lucid REM sleep be detected
-automatically and distinguished from spontaneous REM eye movements with a
-quantified false-alarm rate?
+At equal recovery of prespecified synthetic engineering signals, how often do
+different prearranged ocular patterns collide with spontaneous REM eye
+activity?
 
 The first-stage Donders data audit is complete. The release contains readable raw PSG
 but no event annotations, event sidecars, or epoch-level sleep scoring. It
@@ -26,6 +26,13 @@ rhythmic `sync8_c0` marker directionally replicated its lower collision rate,
 while the paired `sync8_c1` symbol did not. See the
 [sealed pilot results](docs/test-pilot-results.md) and the explicitly
 exploratory [development results](docs/development-pilot-results.md).
+
+The next study is now specified without opening any new signal samples. It
+uses 66 untouched Sleep-EDF sleep-cassette participants for primary
+confirmation, sleep-telemetry placebo nights for threshold transport, and 15
+normal controls from the CAP Sleep Database for independent montage
+replication. See the [confirmatory protocol](docs/confirmatory-study-protocol.md)
+and the [metadata-only corpus audit](docs/external-corpus-format-audit.md).
 
 ## Analysis sequence
 
@@ -49,6 +56,12 @@ The collision pilot uses the ODC-By 1.0
 [Sleep-EDF Expanded](https://physionet.org/content/sleep-edfx/1.0.0/) release.
 The frozen manifest selects one night from 12 distinct participants, with six
 for development and six reserved for a sealed pilot test.
+
+The confirmatory manifests add every available night from the 66 remaining
+sleep-cassette participants, both nights from 22 sleep-telemetry participants
+with placebo and temazepam identified in advance, and CAP normal controls
+`n1` through `n15`. CAP `n16` was excluded from EDF header metadata because it
+contains no EOG channel. All source files remain untracked.
 
 ## Reproduce the audit
 
@@ -95,6 +108,38 @@ run the sealed pilot test:
 The test command refuses to run if the worktree is dirty, thresholds are not
 tracked, or any configuration or implementation hash differs from the
 development run.
+
+## Reproduce the confirmatory preparation
+
+Rebuild both manifests from checksum-verified official metadata and compare
+them with the frozen copies:
+
+```powershell
+./.venv/Scripts/python.exe scripts/build_confirmatory_manifests.py --check
+./.venv/Scripts/python.exe -m pytest -q
+```
+
+The manifest builder reads inventories, checksum lists and subject tables. It
+does not download or open physiological recordings.
+
+After the protocol and implementation are committed, retrieve and run only
+the primary cohort:
+
+```powershell
+./.venv/Scripts/python.exe scripts/fetch_confirmatory_data.py --cohort sc
+./.venv/Scripts/python.exe scripts/run_confirmatory_benchmark.py --cohort sc
+./.venv/Scripts/python.exe scripts/analyze_confirmatory_froc.py
+```
+
+The long runner keeps per-record checkpoints tied to the frozen revision and
+can safely resume with `--resume`. It stores every background candidate from
+the minimum score floor, allowing the full matched-recovery FROC analysis
+without rescanning the signals.
+
+Sleep-telemetry remains inaccessible to the runner until the sleep-cassette
+threshold file has been committed. CAP remains inaccessible until its separate
+analysis gate has been committed. These gates prevent accidental peeking across
+the ordered validation stages.
 
 ## Scientific boundary
 
