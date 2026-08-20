@@ -28,7 +28,7 @@ affects only the preflight seal check. The cohort, data, detector, synthetic
 injections, outcomes, thresholds, and statistical analysis are unchanged. No
 signal values were decoded or analyzed before this amendment was recorded.
 
-## 2026-08-20: complete background-score support
+## 2026-08-20: complete detector-score support
 
 The first complete SC scan met the frozen precision targets: 129 nights from
 66 participants, 177.13 eligible REM hours, and 2,563 primary synthetic
@@ -45,9 +45,21 @@ support and prevents further left-censoring. The original floor-0.45 output is
 retained locally as a censored audit artifact.
 
 This is a post-data-access amendment and must be reported as such. It changes
-only which already-defined background candidates are retained. It does not
-change the cohort, code waveforms, preprocessing, amplitude gate, nonmaximum
-suppression, synthetic injections, recovery targets, threshold-selection rule,
+only the censoring of already-defined background detections and matched
+synthetic recovery scores. It does not change the cohort, code waveforms,
+preprocessing, amplitude gate, nonmaximum suppression, synthetic injection
+locations or perturbations, recovery targets, threshold-selection rule,
 bootstrap seed or replicates, superiority rule, or practical gate. No
 comparative rate estimate, confidence interval, or scientific conclusion was
 produced before this amendment was recorded.
+
+### Clarification after the amended scan and before inference
+
+A quality-control comparison of the two SC outputs confirmed that exposure,
+injection count, injection locations, local amplitudes, perturbation seeds and
+all background detections at or above 0.45 were identical. It also showed that
+the original floor had encoded 93 of 5,126 synthetic code rows as zero-score
+nonmatches even though their best qualified match lay below 0.45. The amended
+scan retains those actual low scores. This clarification was recorded before
+rerunning the inferential script and before inspecting any comparative rate or
+confidence interval.
