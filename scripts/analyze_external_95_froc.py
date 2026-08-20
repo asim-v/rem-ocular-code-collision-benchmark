@@ -67,10 +67,10 @@ def require_empty(path: Path) -> None:
         raise RuntimeError(f"refusing to overwrite nonempty analysis output: {path}")
 
 
-def verify_sc_provenance(gate: dict) -> None:
+def verify_sc_provenance(gate: dict, source_hashes: dict[str, str]) -> None:
     files = gate["generated_from"]["files"]
     for relative, expected in files.items():
-        observed = file_sha256(ROOT / relative)
+        observed = source_hashes.get(relative)
         if observed != expected:
             raise RuntimeError(f"SC source hash mismatch: {relative}")
 
@@ -111,7 +111,7 @@ def main() -> None:
         raise ValueError("external gate does not identify the ST placebo cohort")
     if float(gate["candidate_storage_floor"]) != 0.0:
         raise ValueError("external analysis requires complete zero-floor support")
-    verify_sc_provenance(gate)
+    verify_sc_provenance(gate, source_hashes)
 
     tables = load_result_tables(input_dir, label="sleep_edf_st_placebo")
     candidate = str(gate["candidate"])

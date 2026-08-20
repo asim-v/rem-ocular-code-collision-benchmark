@@ -8,7 +8,7 @@
     "files": {
       "outputs/ocular-code-confirmatory/sc-analysis/matched_thresholds.csv": "552b3c97adfd4f3f86ee149caf36fbff76a7326bf90331653f72d9913d2466f4",
       "outputs/ocular-code-confirmatory/sc-analysis/clustered_contrasts.csv": "9b4070353d0f5a9eefe6f3910ca3c0d48b2a8afa8c14f5ac4fca319483ba0011",
-      "outputs/ocular-code-confirmatory/sc-analysis/summary.json": "ef6b4cd1470ed2cb116a9375078ac2afb84982aeaa3accb26252e376bc9c768b"
+      "outputs/ocular-code-confirmatory/sc-analysis/summary.json": "f08c4ae815834fca6aa297220efeaa9b7e6f2b7caee1a5a0774943a4be321765"
     }
   },
   "primary_cohort": "sleep_edf_st_placebo",

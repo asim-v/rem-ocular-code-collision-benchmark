@@ -1,4 +1,6 @@
+from hashlib import sha256
 import json
+import subprocess
 
 from scripts.analyze_external_95_froc import fixed_sc_threshold_frame
 from scripts.run_confirmatory_benchmark import (
@@ -8,7 +10,6 @@ from scripts.run_confirmatory_benchmark import (
     TRANSPORT_GATE,
     stage_gate_paths,
 )
-from src.benchmark import file_sha256
 
 
 def test_external_gate_freezes_sc_result_and_high_recovery_question():
@@ -19,8 +20,15 @@ def test_external_gate_freezes_sc_result_and_high_recovery_question():
     assert gate["candidate_storage_floor"] == 0.0
     assert gate["temazepam_access_authorized"] is False
     assert gate["cap_access_authorized"] is False
+    root = EXTERNAL_95_ST_GATE.parents[1]
     for relative, expected in gate["generated_from"]["files"].items():
-        assert file_sha256(EXTERNAL_95_ST_GATE.parents[1] / relative) == expected
+        blob = subprocess.run(
+            ["git", "show", f"HEAD:{relative}"],
+            cwd=root,
+            check=True,
+            capture_output=True,
+        ).stdout
+        assert sha256(blob).hexdigest() == expected
 
     frozen = fixed_sc_threshold_frame(gate).iloc[0]
     assert frozen["candidate_threshold"] == gate["sc_95_descriptive_thresholds"][
