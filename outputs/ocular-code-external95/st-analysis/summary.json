@@ -1,0 +1,49 @@
+{
+  "advance_cap": false,
+  "analysis": "external 95% matched-recovery FROC replication",
+  "cap_opened": false,
+  "git_commit": "148c6ed6764e6bd56fe0190c568a7e3bd3016375",
+  "human_sensitivity_estimated": false,
+  "input_sha256": {
+    "background_by_recording.csv": "b1dbc71ae3749354a96bbed4f4a52d4b88ddf5cb520cee4031a83708dbe66c99",
+    "background_events.csv": "48d0217198fa7f13e3d903839f1e80ff39597167bbc8b581858918c786600975",
+    "summary.json": "fdfa1baf7038279cd9f8e56fc5f033684d8900397ead854407e01ea667e2ef22",
+    "synthetic_recovery.csv": "4138cce1494911a163ba4917231c2540874fe7550681830264ad9c6b0a1caf72"
+  },
+  "physiological_recordings_read": false,
+  "primary": {
+    "candidate_events": 308,
+    "candidate_rate": 8.996056923101888,
+    "candidate_recovery": 0.95,
+    "candidate_threshold": 0.5329314056151196,
+    "control_events": 321,
+    "control_rate": 9.375760624401643,
+    "control_recovery": 0.95,
+    "control_threshold": 0.490856312909755,
+    "engineering_check_only": true,
+    "estimate": -0.3797037012997553,
+    "external_replication": false,
+    "lower": -10.52296293596257,
+    "participants": 22,
+    "practical_gate": false,
+    "rate_ratio": 0.9595015576323987,
+    "replicates": 50000,
+    "requested_recovery_fraction": 0.95,
+    "statistical_superiority": false,
+    "upper": 12.394295950284343
+  },
+  "psi_claim_permitted": false,
+  "schema_version": 1,
+  "source_sha256": {
+    "config/confirmatory_benchmark.json": "6d4035932cb23cef3917c57cf76ffe7831e5c0378503d437b5a9caf89274a4db",
+    "config/external_95_st_gate.json": "2fd71e4fa9a3f6e4dc632d2076828ca6d98dd84ea704361b4e83d9088db3ea89",
+    "outputs/ocular-code-confirmatory/sc-analysis/clustered_contrasts.csv": "9b4070353d0f5a9eefe6f3910ca3c0d48b2a8afa8c14f5ac4fca319483ba0011",
+    "outputs/ocular-code-confirmatory/sc-analysis/matched_thresholds.csv": "552b3c97adfd4f3f86ee149caf36fbff76a7326bf90331653f72d9913d2466f4",
+    "outputs/ocular-code-confirmatory/sc-analysis/summary.json": "f08c4ae815834fca6aa297220efeaa9b7e6f2b7caee1a5a0774943a4be321765",
+    "scripts/analyze_external_95_froc.py": "c3733116f2d2eabdcf69e701fcf00994bd8323cb89f5ab0a55d1bd4dba1748d7",
+    "scripts/run_confirmatory_benchmark.py": "08856cf13fa6b2a857ad18118fc6a76aa7f2bf09e1f4971ee11a0858ccd08971",
+    "src/benchmark.py": "a8c1afbf686995d2387bbd8ed2dd083113c40e49499293fe35bc39a50ee3f07c",
+    "src/froc.py": "d854ac7478933d0bd95a0c31768b806538e136ff7277682757204715f0904126"
+  },
+  "temazepam_opened": false
+}

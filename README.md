@@ -44,6 +44,12 @@ recovery now motivates a separate frozen
 Sleep-telemetry placebo is its sole primary cohort. Temazepam and CAP remain
 sealed, and CAP can advance only if both external replication gates pass.
 
+That external test is now complete. At exactly 95% matched recovery,
+`sync8_c0` produced 8.996 background events per eligible REM hour and the
+control produced 9.376. The clustered interval was wide, the rate ratio was
+0.960, and neither replication gate passed. CAP and temazepam remain unopened.
+See the [external results](docs/external-95-results.md).
+
 ## Analysis sequence
 
 1. Preserve a reproducible audit of the Donders release.

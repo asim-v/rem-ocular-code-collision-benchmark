@@ -1,0 +1,2 @@
+requested_recovery_fraction,matched_recoveries,matched_trials,matched_recovery_fraction,candidate_code_id,candidate_threshold,candidate_calibration_recoveries,candidate_calibration_recovery_fraction,candidate_storage_floor,control_code_id,control_threshold,control_calibration_recoveries,control_calibration_recovery_fraction,control_storage_floor,amplitude_mad,interval_jitter_fraction,scope
+0.95,418,440,0.95,sync8_c0,0.5329314056151196,418,0.95,0.0,iso8_matched,0.490856312909755,418,0.95,0.0,4.0,0.15,rem

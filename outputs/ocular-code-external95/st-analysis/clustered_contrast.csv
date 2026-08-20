@@ -1,0 +1,2 @@
+requested_recovery_fraction,estimate,lower,upper,candidate_threshold,control_threshold,candidate_rate,control_rate,candidate_events,control_events,candidate_recovery,control_recovery,replicates,participants,rate_ratio,statistical_superiority,practical_gate,external_replication,engineering_check_only
+0.95,-0.3797037012997553,-10.52296293596257,12.394295950284343,0.5329314056151196,0.490856312909755,8.996056923101888,9.375760624401643,308,321,0.95,0.95,50000,22,0.9595015576323987,False,False,False,True
