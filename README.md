@@ -27,12 +27,20 @@ while the paired `sync8_c1` symbol did not. See the
 [sealed pilot results](docs/test-pilot-results.md) and the explicitly
 exploratory [development results](docs/development-pilot-results.md).
 
-The next study is now specified without opening any new signal samples. It
-uses 66 untouched Sleep-EDF sleep-cassette participants for primary
-confirmation, sleep-telemetry placebo nights for threshold transport, and 15
-normal controls from the CAP Sleep Database for independent montage
-replication. See the [confirmatory protocol](docs/confirmatory-study-protocol.md)
-and the [metadata-only corpus audit](docs/external-corpus-format-audit.md).
+The confirmatory Sleep-EDF sleep-cassette analysis is complete. At matched 90%
+synthetic engineering recovery, `sync8_c0` produced 1.823 background events per
+eligible REM hour and the isochronous control produced 1.694. The clustered
+interval did not support lower collision for the synchronized code, and its
+practical advancement gate failed. See the
+[confirmatory results](docs/confirmatory-results.md), the
+[prespecified protocol](docs/confirmatory-study-protocol.md), and the
+[amendment log](docs/amendments.md).
+
+The untouched sleep-telemetry and CAP corpora remain unopened. Because the
+primary test failed, they will not be interpreted as secondary confirmation
+under the original sequence. A crossing of the descriptive FROC curves at 95%
+recovery motivates a new external protocol that must be frozen before those
+signals are accessed.
 
 ## Analysis sequence
 

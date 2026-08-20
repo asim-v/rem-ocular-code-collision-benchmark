@@ -1,0 +1,23 @@
+{
+  "cohort": "sc",
+  "cohort_id": "sleep_edf_sc_confirmatory",
+  "frozen_sha256": {
+    "config/cap_normal_manifest.csv": "84b48d100f07a9f5bee6bdde0ea263142e2676b136f70279b1fcb506d157ece1",
+    "config/codebook.json": "e55a0f8561587ace4854e1e007bf940c90e54046184fe23e821f254dc6eb026b",
+    "config/confirmatory_benchmark.json": "6d4035932cb23cef3917c57cf76ffe7831e5c0378503d437b5a9caf89274a4db",
+    "config/sleep_edf_confirmatory_manifest.csv": "b8e7f731fe4f5a254c26d7039a81f15bd76f69172ae61acbd6ac958dbd9c3b24",
+    "scripts/analyze_confirmatory_froc.py": "e7c0bd275a3b6aa770fd858717c2904f13ffaa669030899d3e49b04d9d48b412",
+    "scripts/run_confirmatory_benchmark.py": "3ee06ec917fadf2e0ca6300ac66662c6538428c20615aea3d69b5321d0f5164e",
+    "scripts/run_ocular_code_benchmark.py": "5eef03c9f4c7aa0bea74dd8b07a7927925a7f25d39fd92fe58a045da72e6ce41",
+    "src/benchmark.py": "a8c1afbf686995d2387bbd8ed2dd083113c40e49499293fe35bc39a50ee3f07c",
+    "src/cap_sleep.py": "725e1187df5fee3157d3c909c148f8e695311445e5d6228b17d3984d338b5355",
+    "src/confirmatory_manifest.py": "11e2aa210eb562166ddbdfb9ff99d8639bd1c5c5f44e8ac5d74126254cf5a3bd",
+    "src/froc.py": "d854ac7478933d0bd95a0c31768b806538e136ff7277682757204715f0904126",
+    "src/ocular_codes.py": "94e547ed83886c61a988bb7e54a3cb177cae43b9bc3429a16456840e5c699354",
+    "src/sleep_edf.py": "c45577e14d43563f7c599e25ee3528d543c229da7d20c52643a6043e673b48c4"
+  },
+  "git_commit": "c8719976c80d251e4cb85dd02943c407b2b9b2b7",
+  "human_sensitivity_estimated": false,
+  "physiological_interpretation": "background collision benchmark",
+  "schema_version": 1
+}

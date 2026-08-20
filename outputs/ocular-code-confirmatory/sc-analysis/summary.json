@@ -1,0 +1,39 @@
+{
+  "analysis": "confirmatory matched-recovery FROC",
+  "git_commit": "42fb34bc5bd3a8001ec079e458e477442377893e",
+  "human_sensitivity_estimated": false,
+  "input_sha256": {
+    "background_by_recording.csv": "cd7ede1a16d9da6d373a9bb9f9760495bdf7e3effcd1d0c467799f1067b673ff",
+    "background_events.csv": "ed312b6cd76177fe298a0e4febb585c6dcc38744bb65147eb54fc6054193c063",
+    "summary.json": "d86faa1814ff2ce8060f13e7cdb62d516aa8e31f859c441c9580b428eef28125",
+    "synthetic_recovery.csv": "543fb8d5364250f3c5fbe0041919aabb78ffa6337d78591038e70d0c0a8899a3"
+  },
+  "physiological_recordings_read": false,
+  "primary": {
+    "candidate_events": 323,
+    "candidate_rate": 1.8234908527501343,
+    "candidate_recovery": 0.9001170503316426,
+    "candidate_threshold": 0.6629899446887014,
+    "control_events": 300,
+    "control_rate": 1.6936447548762856,
+    "control_recovery": 0.9001170503316426,
+    "control_threshold": 0.6391164232167129,
+    "engineering_check_only": true,
+    "estimate": 0.1298460978738487,
+    "lower": -1.1485993382792419,
+    "participants": 66,
+    "practical_advance_gate": false,
+    "rate_ratio": 1.0766666666666667,
+    "replicates": 50000,
+    "requested_recovery_fraction": 0.9,
+    "statistical_superiority": false,
+    "upper": 1.102181855951403
+  },
+  "schema_version": 1,
+  "source_sha256": {
+    "config/confirmatory_benchmark.json": "6d4035932cb23cef3917c57cf76ffe7831e5c0378503d437b5a9caf89274a4db",
+    "scripts/analyze_confirmatory_froc.py": "e7c0bd275a3b6aa770fd858717c2904f13ffaa669030899d3e49b04d9d48b412",
+    "src/benchmark.py": "6d3fc9ab2afd7a6c37ffe9b6c92b762ba61b8b636ab7974efe5e3f1c5e3ddc6b",
+    "src/froc.py": "d854ac7478933d0bd95a0c31768b806538e136ff7277682757204715f0904126"
+  }
+}
