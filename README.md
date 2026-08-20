@@ -39,8 +39,10 @@ practical advancement gate failed. See the
 The untouched sleep-telemetry and CAP corpora remain unopened. Because the
 primary test failed, they will not be interpreted as secondary confirmation
 under the original sequence. A crossing of the descriptive FROC curves at 95%
-recovery motivates a new external protocol that must be frozen before those
-signals are accessed.
+recovery now motivates a separate frozen
+[external replication protocol](docs/external-95-replication-protocol.md).
+Sleep-telemetry placebo is its sole primary cohort. Temazepam and CAP remain
+sealed, and CAP can advance only if both external replication gates pass.
 
 ## Analysis sequence
 

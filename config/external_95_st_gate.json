@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "study_id": "external-95-froc-replication-2026-08-20",
+  "status": "frozen_before_sleep_telemetry_signal_access",
+  "hypothesis_origin": "descriptive_95_percent_operating_point_after_failed_sc_primary",
+  "generated_from": {
+    "public_result_commit": "e6c10945926e1f52ab32bea0a03dcce81580ac60",
+    "files": {
+      "outputs/ocular-code-confirmatory/sc-analysis/matched_thresholds.csv": "552b3c97adfd4f3f86ee149caf36fbff76a7326bf90331653f72d9913d2466f4",
+      "outputs/ocular-code-confirmatory/sc-analysis/clustered_contrasts.csv": "9b4070353d0f5a9eefe6f3910ca3c0d48b2a8afa8c14f5ac4fca319483ba0011",
+      "outputs/ocular-code-confirmatory/sc-analysis/summary.json": "ef6b4cd1470ed2cb116a9375078ac2afb84982aeaa3accb26252e376bc9c768b"
+    }
+  },
+  "primary_cohort": "sleep_edf_st_placebo",
+  "candidate": "sync8_c0",
+  "control": "iso8_matched",
+  "recovery_target": 0.95,
+  "amplitude_mad": 4.0,
+  "interval_jitter_fraction": 0.15,
+  "threshold_rule": "rematch_within_st_placebo_using_synthetic_scores_only",
+  "primary_metric": "candidate_minus_control_background_events_per_eligible_rem_hour",
+  "cluster_unit": "participant",
+  "bootstrap_replicates": 50000,
+  "bootstrap_seed": 20260821,
+  "superiority_rule": "upper_participant_clustered_95_interval_below_zero",
+  "practical_rate_ratio_maximum": 0.70,
+  "cap_advance_rule": "superiority_and_practical_rules_both_pass",
+  "candidate_storage_floor": 0.0,
+  "sc_95_descriptive_thresholds": {
+    "candidate_threshold": 0.5434436373792657,
+    "control_threshold": 0.4520665808644019,
+    "recoveries": 2435,
+    "trials": 2563,
+    "recovery_fraction": 0.9500585251658213
+  },
+  "temazepam_access_authorized": false,
+  "cap_access_authorized": false,
+  "human_sensitivity_estimated": false,
+  "psi_claim_permitted": false
+}

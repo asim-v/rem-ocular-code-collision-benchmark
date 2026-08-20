@@ -61,10 +61,13 @@ COHORTS = {
     "cap-normal": (CAP_MANIFEST, "cap_normal_external"),
 }
 TRANSPORT_GATE = DEFAULT_OUTPUT_ROOT / "sc-analysis" / "locked_thresholds.json"
+EXTERNAL_95_ST_GATE = ROOT / "config" / "external_95_st_gate.json"
+TEMAZEPAM_GATE = ROOT / "config" / "temazepam_analysis_gate.json"
 CAP_GATE = ROOT / "config" / "cap_analysis_gate.json"
 IMPLEMENTATION_PATHS = (
     "scripts/run_confirmatory_benchmark.py",
     "scripts/analyze_confirmatory_froc.py",
+    "scripts/analyze_external_95_froc.py",
     "scripts/run_ocular_code_benchmark.py",
     "src/benchmark.py",
     "src/cap_sleep.py",
@@ -76,6 +79,7 @@ IMPLEMENTATION_PATHS = (
 CONFIG_PATHS = (
     "config/codebook.json",
     "config/confirmatory_benchmark.json",
+    "config/external_95_st_gate.json",
     "config/sleep_edf_confirmatory_manifest.csv",
     "config/cap_normal_manifest.csv",
 )
@@ -149,25 +153,31 @@ def require_frozen_revision(paths: tuple[str, ...]) -> tuple[str, dict[str, str]
     return git_commit(), hashes
 
 
+def stage_gate_paths(cohort: str) -> tuple[Path, ...]:
+    if cohort == "st-placebo":
+        return TRANSPORT_GATE, EXTERNAL_95_ST_GATE
+    if cohort == "st-temazepam":
+        return TRANSPORT_GATE, TEMAZEPAM_GATE
+    if cohort == "cap-normal":
+        return (CAP_GATE,)
+    return ()
+
+
 def require_stage_gate(cohort: str) -> None:
-    gate = None
-    if cohort in {"st-placebo", "st-temazepam"}:
-        gate = TRANSPORT_GATE
-    elif cohort == "cap-normal":
-        gate = CAP_GATE
-    if gate is None:
-        return
-    if not gate.is_file():
-        raise RuntimeError(f"cohort {cohort} remains sealed until tracked gate exists: {gate}")
-    relative = gate.resolve().relative_to(ROOT).as_posix()
-    tracked = subprocess.run(
-        ["git", "ls-files", "--error-unmatch", relative],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-    )
-    if tracked.returncode:
-        raise RuntimeError(f"stage gate is not tracked: {relative}")
+    for gate in stage_gate_paths(cohort):
+        if not gate.is_file():
+            raise RuntimeError(
+                f"cohort {cohort} remains sealed until tracked gate exists: {gate}"
+            )
+        relative = gate.resolve().relative_to(ROOT).as_posix()
+        tracked = subprocess.run(
+            ["git", "ls-files", "--error-unmatch", relative],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if tracked.returncode:
+            raise RuntimeError(f"stage gate is not tracked: {relative}")
 
 
 def record_directory(data_root: Path, record: ManifestRecord) -> Path:
