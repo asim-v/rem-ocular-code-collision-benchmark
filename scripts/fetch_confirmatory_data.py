@@ -37,6 +37,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--workers", type=bounded_workers, default=2)
     parser.add_argument("--retries", type=int, default=2)
     parser.add_argument("--timeout-seconds", type=float, default=60.0)
+    parser.add_argument(
+        "--base-url",
+        help=(
+            "Optional transport-only mirror for the selected cohort. "
+            "Filenames and frozen SHA256 values remain authoritative."
+        ),
+    )
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     if args.retries < 0:
@@ -79,7 +86,7 @@ def main() -> None:
                 download_one,
                 spec,
                 destination,
-                asset.base_url,
+                args.base_url or asset.base_url,
                 timeout_seconds=args.timeout_seconds,
                 retries=args.retries,
             )

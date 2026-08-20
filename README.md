@@ -131,6 +131,17 @@ the primary cohort:
 ./.venv/Scripts/python.exe scripts/analyze_confirmatory_froc.py
 ```
 
+The same frozen SC files can be fetched faster from PhysioNet's official
+public S3 mirror without changing the manifest or its SHA256 checks:
+
+```powershell
+./.venv/Scripts/python.exe scripts/fetch_confirmatory_data.py --cohort sc `
+  --base-url https://physionet-open.s3.amazonaws.com/sleep-edfx/1.0.0/sleep-cassette
+```
+
+This transport-only addition is recorded in
+[`docs/amendments.md`](docs/amendments.md).
+
 The long runner keeps per-record checkpoints tied to the frozen revision and
 can safely resume with `--resume`. It stores every background candidate from
 the minimum score floor, allowing the full matched-recovery FROC analysis
