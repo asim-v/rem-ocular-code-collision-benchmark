@@ -24,6 +24,13 @@ from src.froc import (
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def test_confirmatory_config_retains_complete_absolute_score_support():
+    config = json.loads((ROOT / "config" / "confirmatory_benchmark.json").read_text())
+
+    assert config["detector"]["score"] == "absolute_normalized_cross_correlation"
+    assert config["detector"]["minimum_candidate_score"] == 0.0
+
+
 def _frames():
     subjects = ["a"] * 5 + ["b"] * 5
     anchors = list(range(5)) * 2
