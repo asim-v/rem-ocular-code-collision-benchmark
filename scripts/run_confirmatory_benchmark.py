@@ -121,7 +121,6 @@ def require_frozen_revision(paths: tuple[str, ...]) -> tuple[str, dict[str, str]
         raise RuntimeError("confirmatory run requires no tracked worktree changes")
     hashes: dict[str, str] = {}
     for relative in paths:
-        path = ROOT / relative
         tracked = subprocess.run(
             ["git", "ls-files", "--error-unmatch", relative],
             cwd=ROOT,
@@ -130,18 +129,23 @@ def require_frozen_revision(paths: tuple[str, ...]) -> tuple[str, dict[str, str]
         )
         if tracked.returncode:
             raise RuntimeError(f"confirmatory input is not tracked: {relative}")
+        differs = subprocess.run(
+            ["git", "diff", "--quiet", "HEAD", "--", relative],
+            cwd=ROOT,
+        )
+        if differs.returncode == 1:
+            raise RuntimeError(f"confirmatory input differs from HEAD: {relative}")
+        if differs.returncode:
+            raise subprocess.CalledProcessError(differs.returncode, differs.args)
         head_bytes = subprocess.run(
             ["git", "show", f"HEAD:{relative}"],
             cwd=ROOT,
             check=True,
             capture_output=True,
         ).stdout
-        working_digest = file_sha256(path)
         from hashlib import sha256
 
-        if sha256(head_bytes).hexdigest() != working_digest:
-            raise RuntimeError(f"confirmatory input differs from HEAD: {relative}")
-        hashes[relative] = working_digest
+        hashes[relative] = sha256(head_bytes).hexdigest()
     return git_commit(), hashes
 
 
