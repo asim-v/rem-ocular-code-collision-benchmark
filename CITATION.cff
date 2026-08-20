@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or pilot benchmark, please cite this repository."
+title: "Background Collision Rates of Ocular Codes in REM EOG"
+type: software
+authors:
+  - family-names: "Bazan Sanchez"
+    given-names: "Javier Emilio"
+    email: "bazan@ciencias.unam.mx"
+version: 0.1.0
+date-released: 2026-08-19
+license: MIT
+repository-code: "https://github.com/asim-v/rem-ocular-code-collision-benchmark"
+keywords:
+  - electrooculography
+  - REM sleep
+  - lucid dreaming
+  - false-alarm rate
+  - physiological communication
+  - reproducible benchmark

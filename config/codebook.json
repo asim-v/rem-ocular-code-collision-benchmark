@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "description": "Prespecified ocular-code waveforms for the Sleep-EDF pilot.",
+  "waveform": {
+    "sample_rate_hz": 100,
+    "pre_baseline_seconds": 0.4,
+    "post_baseline_seconds": 0.4,
+    "transition_seconds": 0.15,
+    "short_seconds": 0.35,
+    "long_seconds": 0.75,
+    "equal_seconds": 0.55,
+    "pause_seconds": 1.0,
+    "starting_polarity": 1,
+    "return_to_baseline": true
+  },
+  "codes": [
+    {
+      "id": "legacy_lrl",
+      "family": "historical_control",
+      "rhythm": "EEE",
+      "primary": false
+    },
+    {
+      "id": "legacy_lrlr",
+      "family": "historical_control",
+      "rhythm": "EEEE",
+      "primary": false
+    },
+    {
+      "id": "legacy_lrlrlr",
+      "family": "length_control",
+      "rhythm": "EEEEEE",
+      "primary": false
+    },
+    {
+      "id": "double_lrlr_pause",
+      "family": "historical_pause_control",
+      "rhythm": "EEEEPEEEE",
+      "primary": false
+    },
+    {
+      "id": "iso8_matched",
+      "family": "matched_isotemporal_control",
+      "rhythm": "EEEEEEEE",
+      "primary": true
+    },
+    {
+      "id": "sync8_c0",
+      "family": "cross_bifix_free_rhythmic",
+      "rhythm": "SSLSLSLL",
+      "primary": true
+    },
+    {
+      "id": "sync8_c1",
+      "family": "cross_bifix_free_rhythmic",
+      "rhythm": "SSLLSLSL",
+      "primary": false
+    }
+  ],
+  "prespecified_primary_contrast": {
+    "candidate": "sync8_c0",
+    "control": "iso8_matched",
+    "rationale": "Both have eight dwell intervals and the same total nominal dwell time. Only their temporal structure differs."
+  }
+}

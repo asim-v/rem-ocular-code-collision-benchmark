@@ -1,0 +1,20 @@
+{
+  "config_sha256": {
+    "config/benchmark.json": "32f4ba06af3eccc1bc9fe4de82114f4cebf5798a37a1dc1f58ab4b1d1bbb4d34",
+    "config/codebook.json": "e55a0f8561587ace4854e1e007bf940c90e54046184fe23e821f254dc6eb026b",
+    "config/sleep_edf_pilot_manifest.csv": "93b6403fb08936fe28112037bb44005f31b86cc4497207e6d753e30591eeff7e"
+  },
+  "git_commit": "d860dc83c2a2c27fe41637c8d7c3af91ad9c70e8",
+  "git_worktree_clean": true,
+  "implementation_sha256": {
+    "scripts/run_ocular_code_benchmark.py": "5eef03c9f4c7aa0bea74dd8b07a7927925a7f25d39fd92fe58a045da72e6ce41",
+    "src/benchmark.py": "72516167c9b2fcb2428ad9e86547e4d3f09566fc5c6915319dd45f89ccdb47be",
+    "src/code_design.py": "224299807d8b4411ddebdc12b83be4898925cdd1c471e5f7ab13aac34c0937ca",
+    "src/ocular_codes.py": "94e547ed83886c61a988bb7e54a3cb177cae43b9bc3429a16456840e5c699354",
+    "src/sleep_edf.py": "c45577e14d43563f7c599e25ee3528d543c229da7d20c52643a6043e673b48c4"
+  },
+  "split": "development",
+  "thresholds_path": "outputs/ocular-code-pilot/development/thresholds.json",
+  "thresholds_path_redacted_after_run": true,
+  "thresholds_sha256": null
+}

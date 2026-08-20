@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "random_seed": 20260819,
+  "pilot_only": true,
+  "data": {
+    "manifest": "config/sleep_edf_pilot_manifest.csv",
+    "channel": "EOG horizontal",
+    "required_sample_rate_hz": 100,
+    "rem_annotation": "Sleep stage R",
+    "rem_boundary_margin_seconds": 2.0
+  },
+  "preprocessing": {
+    "filter_kind": "butterworth_sos_zero_phase",
+    "filter_order": 4,
+    "highpass_hz": 0.1,
+    "lowpass_hz": 8.0,
+    "calibration_mode": "trailing_robust_mad",
+    "calibration_seconds": 300.0,
+    "calibration_update_seconds": 30.0,
+    "minimum_calibration_seconds": 30.0
+  },
+  "detector": {
+    "scan_step_seconds": 0.05,
+    "time_scales": [0.8, 0.9, 1.0, 1.1, 1.2],
+    "score": "absolute_normalized_cross_correlation",
+    "minimum_candidate_score": 0.45,
+    "minimum_regression_amplitude_mad": 1.5,
+    "nms_seconds": 1.0,
+    "match_tolerance_seconds": 0.75
+  },
+  "synthetic_injection": {
+    "interpretation": "engineering robustness only, not human sensitivity",
+    "anchors_per_recording": 20,
+    "minimum_anchor_separation_seconds": 60.0,
+    "amplitude_mad": [2.0, 4.0, 6.0],
+    "interval_jitter_fraction": [0.05, 0.15, 0.25],
+    "primary_amplitude_mad": 4.0,
+    "primary_interval_jitter_fraction": 0.15,
+    "transition_seconds_range": [0.08, 0.25],
+    "relative_plateau_amplitude_sd": 0.1,
+    "overshoot_fraction_range": [0.0, 0.15],
+    "random_polarity": true
+  },
+  "threshold_selection": {
+    "score_grid_start": 0.5,
+    "score_grid_stop": 0.95,
+    "score_grid_step": 0.025,
+    "target_development_sensitivity": 0.9,
+    "rule": "largest threshold reaching the target on primary synthetic injections",
+    "may_use_development_false_alarm_counts": false
+  },
+  "inference": {
+    "primary_metric": "false_events_per_rem_hour",
+    "secondary_metrics": [
+      "synthetic_sensitivity",
+      "false_events_per_recording_night_with_expert_rem_gate",
+      "false_events_per_full_recording_hour_ungated",
+      "probability_false_event_in_10_second_query_window"
+    ],
+    "cluster_unit": "subject",
+    "bootstrap_replicates": 10000,
+    "poisson_confidence_level": 0.95
+  }
+}

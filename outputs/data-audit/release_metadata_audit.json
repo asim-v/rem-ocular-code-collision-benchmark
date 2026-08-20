@@ -1,0 +1,95 @@
+{
+  "declared_subject_count": 6,
+  "duplicate_report_groups": [
+    {
+      "paths": [
+        "Data/Reports/s_04/c_04/morningnap_dreamreport_part1.docx",
+        "Data/Reports/s_04/c_05/s04_c05_dreamreport_part1.docx"
+      ],
+      "sha256": "46c8cb4a625b44ec96fdd955c7564a0dcbc71fc298122b63e6928a72821dd0b2"
+    },
+    {
+      "paths": [
+        "Data/Reports/s_04/c_04/morningnap_dreamreport_finalpart.docx",
+        "Data/Reports/s_04/c_05/s04_c05_dreamreport_finalpart.docx"
+      ],
+      "sha256": "afae43d5a874ff54490a2111a5a20afb145862424740dd1600e530c5e5db3974"
+    },
+    {
+      "paths": [
+        "Data/Reports/s_04/c_04/morningnap_dreamreport_part2.docx",
+        "Data/Reports/s_04/c_05/s04_c05_dreamreport_part2.docx"
+      ],
+      "sha256": "c8492e4bd7451ab5c8ca548f2b0cb157d06fd054ffd1977ba4e5461da7ecbd9e"
+    }
+  ],
+  "event_sidecar_files": [],
+  "explicit_description_study_map": {
+    "s_00/c_00/morningnap_singlepart.edf": 1,
+    "s_01/c_01/morningnap_singlepart.edf": 1,
+    "s_02/c_02/morningnap_part1.edf": 1,
+    "s_02/c_02/morningnap_part2.edf": 1,
+    "s_03/c_03/morningnap_singlepart.edf": 2,
+    "s_04/c_04/morningnap_singlepart.edf": 0,
+    "s_04/c_05/morningnap_singlepart.edf": 0
+  },
+  "n_duplicate_report_groups": 3,
+  "n_embedded_edf_annotations": 0,
+  "n_records": 7,
+  "n_study_code_conflicts": 7,
+  "n_unique_subject_ids_in_records": 5,
+  "records_csv_treatment_group_map": {
+    "s_00/c_00/morningnap_singlepart.edf": 0,
+    "s_01/c_01/morningnap_singlepart.edf": 0,
+    "s_02/c_02/morningnap_part1.edf": 0,
+    "s_02/c_02/morningnap_part2.edf": 0,
+    "s_03/c_03/morningnap_singlepart.edf": 1,
+    "s_04/c_04/morningnap_singlepart.edf": 2,
+    "s_04/c_05/morningnap_singlepart.edf": 2
+  },
+  "study_code_conflicts": [
+    {
+      "filename": "s_00/c_00/morningnap_singlepart.edf",
+      "study_in_experimental_description": 1,
+      "treatment_group_in_records_csv": 0
+    },
+    {
+      "filename": "s_01/c_01/morningnap_singlepart.edf",
+      "study_in_experimental_description": 1,
+      "treatment_group_in_records_csv": 0
+    },
+    {
+      "filename": "s_02/c_02/morningnap_part1.edf",
+      "study_in_experimental_description": 1,
+      "treatment_group_in_records_csv": 0
+    },
+    {
+      "filename": "s_02/c_02/morningnap_part2.edf",
+      "study_in_experimental_description": 1,
+      "treatment_group_in_records_csv": 0
+    },
+    {
+      "filename": "s_03/c_03/morningnap_singlepart.edf",
+      "study_in_experimental_description": 2,
+      "treatment_group_in_records_csv": 1
+    },
+    {
+      "filename": "s_04/c_04/morningnap_singlepart.edf",
+      "study_in_experimental_description": 0,
+      "treatment_group_in_records_csv": 2
+    },
+    {
+      "filename": "s_04/c_05/morningnap_singlepart.edf",
+      "study_in_experimental_description": 0,
+      "treatment_group_in_records_csv": 2
+    }
+  ],
+  "trial_reconstruction_from_release": "not directly possible: no embedded EDF annotations or event sidecars",
+  "unique_subject_ids_in_records": [
+    "s_00",
+    "s_01",
+    "s_02",
+    "s_03",
+    "s_04"
+  ]
+}

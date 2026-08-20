@@ -1,0 +1,15 @@
+# Downloaded source data and extracted recordings
+data/raw/
+data/extracted/
+data/derived/
+data/sleep-edf/
+
+# Local environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Temporary files
+tmp/
+*.log

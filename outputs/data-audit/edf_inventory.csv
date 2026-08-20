@@ -1,0 +1,8 @@
+relative_path,bytes,n_channels,sampling_frequency_hz,n_samples,duration_seconds,measurement_date,n_annotations,mne_channel_type_counts,name_inferred_channel_type_counts
+Data/PSG/s_00/c_00/morningnap_singlepart.edf,764445486,64,500.0,5970735,11941.47,2021-06-15T08:48:35+00:00,0,"{""eeg"": 64}","{""eeg"": 58, ""emg"": 4, ""eog"": 2}"
+Data/PSG/s_01/c_01/morningnap_singlepart.edf,336930952,64,500.0,2631626,5263.252,2021-08-30T11:10:40+00:00,0,"{""eeg"": 64}","{""eeg"": 59, ""emg"": 3, ""eog"": 2}"
+Data/PSG/s_02/c_02/morningnap_part1.edf,347907948,64,500.0,2717367,5434.734,2021-09-08T10:38:18+00:00,0,"{""eeg"": 64}","{""eeg"": 59, ""emg"": 3, ""eog"": 2}"
+Data/PSG/s_02/c_02/morningnap_part2.edf,161544312,64,500.0,1261686,2523.372,2021-09-08T12:09:41+00:00,0,"{""eeg"": 64}","{""eeg"": 59, ""emg"": 3, ""eog"": 2}"
+Data/PSG/s_03/c_03/morningnap_singlepart.edf,471248640,64,500.0,3681500,7363.0,2021-02-19T10:06:09+00:00,0,"{""eeg"": 64}","{""eeg"": 57, ""emg"": 7}"
+Data/PSG/s_04/c_04/morningnap_singlepart.edf,1027873024,128,500.0,4015000,8030.0,2019-05-22T09:24:11+00:00,0,"{""eeg"": 128}","{""ecg"": 1, ""eeg"": 120, ""emg"": 3, ""eog"": 4}"
+Data/PSG/s_04/c_05/morningnap_singlepart.edf,1050145024,128,500.0,4102000,8204.0,2019-06-12T09:25:17+00:00,0,"{""eeg"": 128}","{""ecg"": 1, ""eeg"": 120, ""emg"": 3, ""eog"": 4}"

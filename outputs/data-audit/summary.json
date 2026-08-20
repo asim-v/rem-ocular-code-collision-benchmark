@@ -1,0 +1,20 @@
+{
+  "data_root": "data/extracted",
+  "n_edf_errors": 0,
+  "n_edf_files": 7,
+  "n_embedded_annotations": 0,
+  "n_files": 20,
+  "software": {
+    "mne": "1.12.1",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python": "3.10.5"
+  },
+  "suffix_counts": {
+    ".csv": 1,
+    ".docx": 10,
+    ".edf": 7,
+    ".txt": 2
+  },
+  "total_bytes": 4160286422
+}
