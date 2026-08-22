@@ -46,8 +46,10 @@ See the [external results](docs/external-95-results.md).
 
 ## Manuscript
 
-The two-column article source is under [`paper/`](paper/). It builds directly
-from the tracked result figure and does not require downloading raw EDF files.
+The expanded two-column article source is under [`paper/`](paper/). Its figure
+suite covers code timing, matched-recovery contrasts, participant
+heterogeneity, and threshold transport. Every manuscript figure can be rebuilt
+from tracked result tables without downloading raw EDF files.
 
 ## Analysis sequence
 

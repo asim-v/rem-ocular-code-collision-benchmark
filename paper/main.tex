@@ -12,7 +12,7 @@
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
-  pdftitle={Matched-Recovery Benchmarking of Ocular Activation Codes in Spontaneous REM Sleep},
+  pdftitle={Evaluating Ocular Activation Codes for Asynchronous Communication from REM Sleep},
   pdfauthor={Javier Emilio Bazan Sanchez}
 }
 
@@ -23,7 +23,7 @@
 \setlength{\intextsep}{7pt plus 2pt minus 2pt}
 \renewcommand{\arraystretch}{1.08}
 
-\title{\vspace{-1.1em}\textbf{Matched-Recovery Benchmarking of Ocular Activation Codes in Spontaneous REM Sleep}\vspace{-0.4em}}
+\title{\vspace{-1.1em}\textbf{Evaluating Ocular Activation Codes for Asynchronous Communication from REM Sleep}\vspace{-0.4em}}
 \author{Javier Emilio Bazan Sanchez\\
 \small Facultad de Ciencias, Universidad Nacional Aut\'onoma de M\'exico\\
 \small \href{mailto:bazan@ciencias.unam.mx}{bazan@ciencias.unam.mx}}
@@ -33,36 +33,68 @@
 \maketitle
 
 \begin{abstract}
-Voluntary eye movements allow a person in a lucid dream to send simple signals from verified rapid eye movement (REM) sleep. A practical interface must distinguish those signals from the eye movements that occur naturally during REM. This study tested whether a rhythmic eight-interval code was less likely to appear by chance than an equal-duration, evenly timed code. Both codes were scanned continuously in expert-scored REM electrooculography from Sleep-EDF Expanded. Detection thresholds were chosen separately so that the codes recovered the same proportion of paired synthetic signals. The primary sleep-cassette study included 129 nights from 66 participants and 177.13 eligible REM hours. At 90\% matched synthetic recovery, the rhythmic code produced 1.823 detections per hour and the control produced 1.694, a difference of 0.130 per hour (95\% interval after resampling participants: $-1.149$ to 1.102). A separately frozen replication used 22 placebo nights from 22 sleep-telemetry participants and 34.24 eligible REM hours. At 95\% matched recovery, rates were 8.996 and 9.376 per hour, a difference of $-0.380$ (95\% interval: $-10.523$ to 12.394). Neither study supported lower collision for the rhythmic code. Applying thresholds from the first corpus directly to the second created a much larger apparent advantage, but the two codes then had unequal recovery. The results show why continuous-time, exposure-normalized, equal-recovery evaluation is necessary before an ocular code is used as an asynchronous dream interface.
+Eye movements can carry simple messages from a lucid dream to an awake observer. A device that listens continuously must not mistake ordinary rapid eye movement (REM) activity for a command. This study compared two eight-interval activation codes: a rhythmic pattern and an evenly timed control with the same duration and movement count. Both were scanned continuously in public REM electrooculography. Each detector threshold was calibrated to recover the same proportion of synthetic test signals inserted into real background. The primary analysis covered 129 nights, 66 participants, and 177.13 eligible REM hours. At 90\% matched recovery, the rhythmic and control codes produced 1.823 and 1.694 detections per hour. Their difference was 0.130 per hour, with a participant-resampled 95\% interval from $-1.149$ to 1.102. An external analysis of 22 placebo nights found 8.996 and 9.376 detections per hour at 95\% matched recovery. Directly reusing thresholds from the first corpus created a much larger apparent advantage, but also gave the codes unequal recovery. The rhythmic code therefore showed no reproducible benefit. More broadly, the results show that asynchronous dream interfaces should be evaluated by continuous scanning, false activations per REM hour, matched sensitivity, and external recalibration.
 \end{abstract}
 
 \section{Introduction}
 
-People can sometimes recognize that they are dreaming while the dream continues. In laboratory studies, lucid dreamers have marked this state with prearranged left-right eye movements recorded in the electrooculogram (EOG) during polysomnographically verified REM sleep \citep{laberge1981}. The same channel has supported time-stamping of dream tasks \citep{laberge2018} and, more recently, real-time question answering through eye or facial-muscle responses \citep{konkoly2021}. These findings establish ordinary sensory input and physiological output during sleep. They do not imply telepathy or anomalous information transfer.
+People can sometimes recognize that they are dreaming while the dream continues. In laboratory studies, lucid dreamers have marked this state with prearranged left-right eye movements recorded in the electrooculogram (EOG) during polysomnographically verified REM sleep \citep{laberge1981}. The same outward channel has time-stamped dream tasks \citep{laberge2018} and supported real-time answers to questions delivered through ordinary sensory stimulation \citep{konkoly2021,turker2023}. Recent studies have also explored respiratory reports \citep{konkoly2026} and automatic decoding of facial-muscle vocalization attempts \citep{raduga2025}. Together, these findings support a broader goal: a usable interface between a sleeping person and an awake system.
 
-The engineering problem is less settled. An asynchronous interface must monitor a continuous signal and activate only when the intended code occurs. Short ocular patterns can also arise during spontaneous REM. Voss and colleagues reported frequent accidental matches to a short left-right-left pattern and used longer, separated sequences to improve identification \citep{voss2009}. Later work used template matching for successive left-right signals, followed by expert validation \citep{laberge2018}. Outside sleep, continuous EOG interfaces likewise treat false activations per unit time as a central design constraint \citep{wang2014,fang2018}.
+The EOG channel is unusual because its background is meaningful physiology, not empty instrument noise. Eye-movement direction during REM can correspond to the spatial axis of reported dream imagery \citep{herman1984}. Rapid eye movements are also accompanied by time-locked activity in visual and limbic brain regions \citep{miyauchi2009}. A spontaneous movement sequence may therefore resemble a deliberate code even when the recording is clean and the detector is functioning as designed.
 
-This study evaluates that constraint directly. A rhythmic eight-interval candidate was compared with an isochronous control of equal nominal duration. The unit of performance was not window accuracy. It was the number of accidental detections per eligible hour of spontaneous, expert-scored REM sleep at equal recovery of prespecified synthetic engineering signals. A large sleep-cassette cohort provided the primary test. A second sleep-telemetry cohort provided an external, separately frozen test of a high-recovery pattern suggested by the first study.
+Most laboratory signals are interpreted inside a known response window. The experimenter asks a question or instructs a task, then examines a short interval in which an answer is expected. An asynchronous interface has a harder job. It must listen throughout REM, recognize an activation key without an external cue, and avoid opening a command window during ordinary dream-related eye activity. Voss and colleagues reported frequent accidental matches to a short left-right-left pattern and used longer, separated sequences to improve identification \citep{voss2009}. Later work applied template matching to successive left-right signals followed by expert validation \citep{laberge2018}. A recent open-source platform proposal likewise describes an asynchronous EOG activation key, but does not report exposure-normalized collision data \citep{pinakhina2026}.
+
+The same distinction appears in waking assistive interfaces. Continuous EOG systems evaluate false activations over time because a high window-classification score does not guarantee safe unattended operation \citep{wang2014,fang2018}. A second problem appears when a detector is moved to another cohort: its score distribution can shift, so the same numerical threshold need not preserve the same sensitivity. Dataset-shift adaptation has long been recognized as a central problem in brain-computer interfaces \citep{sugiyama2007}.
+
+This study evaluates an ocular activation key as a continuous-time engineering problem. A rhythmic eight-interval code was compared with an isochronous code of equal nominal duration. Four questions were asked. How often does each code collide with spontaneous REM? Does any difference persist when both codes have equal recovery of paired synthetic signals? Is the direction consistent across participants and corpora? What happens when thresholds selected in one corpus are transported to another? The contribution is the combined evaluation framework rather than a claim to have invented ocular signaling, template matching, or asynchronous syntax.
+
+\begin{table*}[t]
+\centering
+\caption{Operational requirements for an asynchronous ocular activation code. Each requirement corresponds to a failure mode that window accuracy alone does not resolve.}
+\label{tab:requirements}
+\small
+\begin{tabular}{p{0.20\textwidth}p{0.32\textwidth}p{0.39\textwidth}}
+\toprule
+Challenge & Misleading shortcut & Requirement used here \\
+\midrule
+Spontaneous REM resembles a code & Classify isolated windows with a balanced test set & Scan continuous REM and report false events per eligible hour \\
+Detector scores differ by code & Apply one numerical threshold to both templates & Select thresholds separately at equal recovery of paired test signals \\
+Participants contribute repeated nights & Treat recordings as independent observations & Resample participants with all of their nights, events, exposure, and injections \\
+Score distributions change across cohorts & Reuse thresholds without checking sensitivity & Report both fixed-threshold transport and within-corpus rematching \\
+\bottomrule
+\end{tabular}
+\end{table*}
 
 \section{Methods}
 
-\subsection{Study design and data}
+\subsection{Study design and data source}
 
-Both analyses used the public Sleep-EDF Expanded database on PhysioNet \citep{kemp2000,goldberger2000}. The horizontal EOG was sampled at 100 Hz. Expert hypnograms defined REM exposure. Two seconds were removed from each REM boundary, and samples affected by nonfinite values or sustained flatlines were excluded by fixed numerical rules. Activity was not removed because it resembled a code.
+Both analyses used Sleep-EDF Expanded, a public polysomnography database hosted by PhysioNet \citep{kemp2000,goldberger2000}. The database contains synchronized physiological channels and expert sleep-stage annotations. It does not contain instructed lucid-dream code attempts. In this study, it served as a negative corpus: every eligible detection was a collision with spontaneous REM background rather than a known intentional message.
 
-The primary sleep-cassette, or SC, analysis excluded all participants used in an earlier pilot. It then included every available night from the remaining prespecified participants. The external sleep-telemetry, or ST, analysis used one placebo night from each of 22 participants. Its protocol and decision rule were committed before any ST waveform was downloaded or opened. Temazepam nights and a planned CAP cohort remained unopened because the ST advancement rule failed.
+Two Sleep-EDF subcorpora supported different stages of evaluation. The sleep-cassette, or SC, collection contains ambulatory recordings from healthy participants. After excluding participants used during earlier development, the primary SC analysis included every available night from 66 prespecified participants. The sleep-telemetry, or ST, collection contains laboratory nights from 22 participants who received placebo or temazepam in a crossover design. The external analysis used one placebo night per participant. Its protocol and decision rule were committed before any ST waveform was downloaded or opened. Temazepam nights and a planned CAP cohort remained unopened because the ST advancement rule failed.
 
-\subsection{Ocular codes}
+Horizontal EOG was sampled at 100 Hz. Expert hypnograms defined REM exposure. Two seconds were removed from each REM boundary so that a detector window could not borrow signal from an adjacent stage. Samples affected by nonfinite values or sustained flatlines were excluded by fixed numerical rules. Physiological activity was not removed merely because it resembled a code.
 
-Both codes contained eight alternating horizontal eye positions and the same total nominal dwell time of 4.4 s. The control, \texttt{iso8\_matched}, used eight equal 0.55 s intervals. The candidate, \texttt{sync8\_c0}, used the rhythm SSLSLSLL, where a short interval was 0.35 s and a long interval was 0.75 s. It contained four intervals of each length. Its beginning does not recur as its ending, a property intended to reduce ambiguous partial matches. The comparison therefore isolated temporal structure while holding the number of positions and total dwell time constant.
+\subsection{Ocular code design}
 
-\subsection{Signal processing and detection}
+Both codes contained eight alternating horizontal eye positions and the same total nominal dwell time of 4.4 s (Figure~\ref{fig:codes}). The control, \texttt{iso8\_matched}, used eight equal 0.55 s intervals. The candidate, \texttt{sync8\_c0}, used SSLSLSLL, where a short interval was 0.35 s and a long interval was 0.75 s. It contained four intervals of each length. Its beginning does not recur as its ending, a property intended to reduce ambiguous partial matches. The comparison isolated temporal structure while holding movement count and total dwell time constant.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/code_timing.pdf}
+\caption{Temporal structure of the two ocular codes. Both templates alternate left and right positions eight times and last 4.4 s. Only the interval pattern differs. S denotes 0.35 s and L denotes 0.75 s.}
+\label{fig:codes}
+\end{figure*}
+
+\subsection{Signal processing and continuous detection}
 
 EOG was filtered from 0.1 to 8 Hz with a fourth-order zero-phase Butterworth filter. Templates were evaluated at time scales 0.8, 0.9, 1.0, 1.1, and 1.2. The detector scanned every 50 ms using absolute normalized cross-correlation, so polarity did not affect the score. A candidate also had to reach 1.5 times the robust median absolute deviation estimated from the preceding 300 s and updated every 30 s. Greedy nonmaximum suppression retained the highest-scoring candidate within a 1 s radius. Only windows fully contained in eligible REM contributed exposure or events.
 
-\subsection{Matched engineering recovery}
+The operational endpoint was detections per eligible REM hour. This differs from ordinary window accuracy. In a continuous scan, the overwhelming majority of possible windows have no label, neighboring windows are dependent, and one spontaneous pattern can produce several nearby high scores before suppression. Counting retained events over observed time measures the burden that an unattended interface would actually face.
 
-Synthetic signals were inserted into real REM background to test detector robustness. They were not treated as human responses. Each recording received at most 20 anchors separated by at least 60 s. The primary signals had an amplitude of four local median absolute deviation units, 15\% interval jitter, random polarity, and fixed distributions for transition time, plateau variation, and overshoot. Anchors and perturbation draws were paired across codes.
+\subsection{Synthetic signals and matched recovery}
+
+No intentional code examples exist in Sleep-EDF. Synthetic signals were therefore inserted into real REM background as a detector stress test. They were not treated as simulated participants or evidence of human performance. Each recording received at most 20 anchors separated by at least 60 s. The primary signals had an amplitude of four local median absolute deviation units, 15\% interval jitter, random polarity, and fixed distributions for transition time, plateau variation, and overshoot. Anchors and perturbation draws were paired across codes so that both templates faced the same local background and nominal difficulty.
 
 For code $k$ at score threshold $t$, engineering recovery was
 \begin{equation}
@@ -74,9 +106,15 @@ and the background collision rate was
 \end{equation}
 For each code, the matched threshold was the largest observed synthetic score that recovered at least the target proportion. Background counts could not influence threshold selection. The primary SC target was 90\%. A separately frozen ST study tested 95\%, motivated by a descriptive crossing of the SC free-response receiver operating characteristic (FROC) curves.
 
-\subsection{Inference and integrity}
+\subsection{Inference, heterogeneity, and transport}
 
-The estimand was the rhythmic minus isochronous difference in events per eligible REM hour. Negative values favored the rhythmic code. Uncertainty used 50,000 participant-clustered bootstrap replicates. Each replicate carried all nights, exposure, events, and injections from a sampled participant and reselected both matched thresholds. Superiority required the upper limit of the two-sided 95\% interval to be below zero. Advancement also required a rate ratio no greater than 0.70. Failure of either rule was not interpreted as equivalence.
+The primary estimand was the rhythmic minus isochronous difference in events per eligible REM hour. Negative values favored the rhythmic code. Uncertainty used 50,000 participant-clustered bootstrap replicates. Each replicate carried all nights, exposure, events, and injections from a sampled participant and reselected both matched thresholds. Superiority required the upper limit of the two-sided 95\% interval to be below zero. Advancement also required a rate ratio no greater than 0.70. Failure of either rule was not interpreted as equivalence.
+
+A descriptive participant analysis counted events above the corpus-specific matched thresholds, divided each participant's count by that participant's eligible exposure, and subtracted the isochronous rate from the rhythmic rate. These unweighted participant differences visualize heterogeneity but do not replace the exposure-weighted primary contrast.
+
+Threshold transport was evaluated in two ways. First, the SC thresholds selected at 95\% recovery were applied directly to ST. Second, thresholds were reselected within ST so that both codes recovered exactly 95\% of paired synthetic signals. The comparison isolates how an apparent collision advantage can change when a fixed score no longer represents equal sensitivity.
+
+\subsection{Protocol integrity}
 
 Protocols, manifests, file checksums, code, and decision rules were versioned before the relevant signal access. A post-access SC amendment lowered the retained candidate-score floor from 0.45 to 0.0 after the inferential script stopped without producing a contrast because some bootstrap thresholds fell below the stored range. The full scan was repeated. Exposure, injections, and all background candidates at or above 0.45 were identical between runs. A later ST provenance correction normalized one text-file digest across line-ending conventions and left every numerical table unchanged.
 
@@ -86,7 +124,7 @@ Protocols, manifests, file checksums, code, and decision rules were versioned be
 
 The SC cohort contained 129 nights from 66 participants, 177.133 eligible REM hours, and 2,563 paired synthetic injections per code. At 90\% matched recovery, \texttt{sync8\_c0} produced 323 events and \texttt{iso8\_matched} produced 300 (Table~\ref{tab:matched}). Their rates were 1.823 and 1.694 per hour. The difference was 0.130 per hour, with a participant-clustered 95\% interval from $-1.149$ to 1.102. The rate ratio was 1.077. Statistical superiority and the practical advancement gate both failed.
 
-The prespecified 85\% and 95\% points were descriptive because the primary gate failed. At 85\%, the rate difference was 0.102 per hour. At 95\%, it reversed to $-25.416$ per hour, with rates of 27.155 and 52.571. This curve crossing generated the external high-recovery hypothesis but did not replace the failed primary result (Figure~\ref{fig:froc}).
+The prespecified 85\% and 95\% points were descriptive because the primary gate failed. At 85\%, the rate difference was 0.102 per hour. At 95\%, it reversed to $-25.416$ per hour, with rates of 27.155 and 52.571. This strong change in the point estimate across the curve generated the external high-recovery hypothesis but did not replace the failed primary result (Figure~\ref{fig:froc}).
 
 \begin{table*}[t]
 \centering
@@ -108,52 +146,79 @@ ST placebo & \texttt{iso8\_matched} & 95\% & 0.4909 & 418/440 & 321 & 9.376 & \\
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.78\textwidth]{../outputs/ocular-code-confirmatory/sc-analysis/confirmatory_froc.pdf}
+\includegraphics[width=0.74\textwidth]{../outputs/ocular-code-confirmatory/sc-analysis/confirmatory_froc.pdf}
 \caption{SC matched-recovery FROC curves. The filled markers show the prespecified 90\% operating point. Lower rates indicate fewer accidental matches. The curves cross at high recovery, but the 95\% point was descriptive after failure of the primary gate.}
 \label{fig:froc}
 \end{figure*}
 
 \subsection{External sleep-telemetry test}
 
-The ST placebo cohort contained 22 nights from 22 participants, 34.237 eligible REM hours, and 440 paired injections per code. At exactly 95\% recovery, the rhythmic code produced 8.996 events per hour and the control produced 9.376. The difference was $-0.380$ per hour, with a 95\% interval from $-10.523$ to 12.394. The rate ratio was 0.960. Both external replication rules failed.
+The ST placebo cohort contained 22 nights from 22 participants, 34.237 eligible REM hours, and 440 paired injections per code. At exactly 95\% recovery, the rhythmic code produced 8.996 events per hour and the control produced 9.376. The difference was $-0.380$ per hour, with a 95\% interval from $-10.523$ to 12.394. The rate ratio was 0.960. Both external replication rules failed. Figure~\ref{fig:contrasts} places this result beside every reported SC operating point. The direction and magnitude were not stable across recovery levels or corpora.
 
-Applying the SC 95\% thresholds directly to ST gave a different impression (Table~\ref{tab:transport}). The rhythmic rate was then 7.214 per hour and the control rate was 16.795. However, recovery was 94.32\% for the rhythmic code and 95.68\% for the control. Once both thresholds were reselected within ST to give exactly 95\% recovery, the large apparent specificity advantage nearly disappeared.
-
-\begin{table}[t]
+\begin{figure*}[t]
 \centering
-\caption{Threshold transport to ST placebo. Fixed SC thresholds changed both collision rate and recovery. Rematching restored equal recovery.}
-\label{tab:transport}
-\small
-\begin{tabular}{lrr}
-\toprule
-Condition & \texttt{sync8\_c0} & \texttt{iso8} \\
-\midrule
-Fixed SC threshold & 0.5434 & 0.4521 \\
-ST recovery & 94.32\% & 95.68\% \\
-ST events/h & 7.214 & 16.795 \\
-\addlinespace
-Rematched ST threshold & 0.5329 & 0.4909 \\
-ST recovery & 95.00\% & 95.00\% \\
-ST events/h & 8.996 & 9.376 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\includegraphics[width=0.94\textwidth]{figures/matched_contrasts.pdf}
+\caption{Rhythmic minus isochronous collision-rate differences at matched recovery. Points are exposure-weighted estimates and bars are participant-clustered 95\% bootstrap intervals. The SC 85\% and 95\% points are descriptive, the SC 90\% point is primary, and the ST 95\% point is the external test. The two panels use different horizontal scales.}
+\label{fig:contrasts}
+\end{figure*}
+
+\subsection{Participant heterogeneity}
+
+The aggregate contrasts did not hide a uniform participant-level effect (Figure~\ref{fig:heterogeneity}). At the SC 90\% thresholds, 27 participants had more rhythmic collisions, 24 had more isochronous collisions, and 15 were tied. The median participant difference was 0.000 events per hour. At the ST 95\% thresholds, the corresponding counts were 9, 12, and 1, with a median of $-0.691$ events per hour. The wider ST distribution partly reflects its shorter exposure per participant. These summaries show directional heterogeneity rather than a subgroup claim.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.99\columnwidth]{figures/participant_heterogeneity.pdf}
+\caption{Descriptive participant-level collision-rate differences at each corpus-specific matched threshold. Positive values indicate more rhythmic-code collisions. Points represent participants; violins summarize density and boxes show medians and quartiles.}
+\label{fig:heterogeneity}
+\end{figure}
+
+\subsection{Threshold transport}
+
+Applying the SC 95\% thresholds directly to ST produced 7.214 rhythmic events per hour and 16.795 isochronous events per hour, an apparent rhythmic advantage of 9.580 events per hour (Figure~\ref{fig:transport}A). However, recovery was then 94.32\% for the rhythmic code and 95.68\% for the control (Figure~\ref{fig:transport}B). The fixed thresholds had changed both sensitivity and collision rate. After thresholds were reselected within ST to give exactly 95\% recovery, rates were 8.996 and 9.376 and the apparent advantage fell to 0.380 events per hour.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/threshold_transport.pdf}
+\caption{Effect of transporting SC thresholds to the ST corpus. Fixed thresholds produced a large collision-rate gap (A), but the codes no longer had equal engineering recovery (B). Rematching within ST restored equal recovery and nearly removed the rate gap.}
+\label{fig:transport}
+\end{figure*}
 
 \section{Discussion}
 
-The rhythmic code did not show a robust background-resistance advantage at equal synthetic recovery. The SC point estimate at 90\% favored the isochronous control slightly. The external ST estimate at 95\% favored the rhythmic code slightly, but the interval was wide and the prespecified replication rules failed. These results do not establish equivalence. They do show that the available data do not justify advancing this code as generally superior.
+\subsection{What the code comparison shows}
 
-The more useful finding concerns evaluation. A fixed detector score is not a fixed sensitivity when the acquisition cohort changes. In ST, transporting two SC thresholds produced unequal recovery and an apparently large rate difference. Comparing the codes at equal recovery reduced that difference from 9.580 to 0.380 events per hour. An asynchronous physiological interface should therefore report a continuous-time FROC curve, false activations per unit exposure, and recovery at every claimed operating point. Window accuracy alone can hide the operational false-alarm burden.
+The rhythmic code did not show a robust background-resistance advantage at equal engineering recovery. The SC point estimate at the primary 90\% target favored the isochronous control slightly. The external ST estimate at 95\% favored the rhythmic code slightly, but its interval was wide and the prespecified replication rules failed. Participant-level directions were also mixed. These results do not prove equivalence. They show that the available evidence does not justify treating this rhythm as generally more resistant to spontaneous REM.
 
-The benchmark also separates code recognition from participant behavior. Synthetic injections measure whether the software can recover a perturbed waveform in real background noise. They do not measure whether a lucid dreamer can execute the pattern, remember the instruction, or remain asleep. Visible dream signals can differ from the intended or reported sequence \citep{oudiette2018}, and learned multi-direction EOG gestures introduce further motor and classifier demands \citep{amo2025}. Human production must therefore be tested prospectively with intentional signals and independently labeled opportunities.
+The physiological background helps explain why a seemingly distinctive rhythm may not be distinctive to a detector. REM eye movements are related to ongoing dream imagery and neural activation \citep{herman1984,miyauchi2009}. A code can look unusual as a symbolic string while still sharing temporal and spectral features with natural oculomotor episodes after filtering, time scaling, polarity invariance, and template matching. Formal properties such as equal symbol count or lack of a suffix-prefix overlap are useful design constraints, but they do not determine the empirical tail of detector scores.
 
-The study has four main limitations. First, the source recordings contain spontaneous REM without instructed code production, so no human sensitivity estimate is available. Second, synthetic perturbations approximate only a limited family of timing and amplitude variation. Third, the ST cohort is small and gives imprecise participant-level intervals. Fourth, Sleep-EDF was not collected for lucid dreaming or real-time interaction. Current interactive-dreaming studies demonstrate that some sleepers can process questions and answer during REM \citep{konkoly2021,turker2023}, but that fact does not guarantee reliable asynchronous activation.
+The result therefore argues for empirical code search rather than intuition alone. A larger code family could be ranked on independent spontaneous REM, but a winner should not be called optimal without intentional human positives. Background resistance, motor producibility, memorability, and robustness to within-person timing variation are different objectives. Improving one can damage another.
 
-The next empirical step should be a prospective human study with a frozen detector. Participants would attempt both codes in randomized order during verified lucid REM and during waking calibration. The primary outcomes should be detected intentional emissions per instructed opportunity and false activations per REM hour outside response windows. Only after ordinary-channel reliability is established would it make sense to design any blinded test of anomalous information transfer. The present data contain no such test and no evidence for psi.
+\subsection{Why equal recovery changes the conclusion}
+
+The threshold-transport result is the clearest methodological finding. A detector score is not an absolute physical unit. It depends on the waveform, preprocessing, noise distribution, and cohort. Reusing the SC thresholds in ST made the rhythmic code appear much more specific, but it also made the rhythmic detector less sensitive to the paired synthetic test signals. Once sensitivity was equalized, the large gap nearly vanished.
+
+This is a concrete form of dataset shift. It does not imply that every new user requires complete retraining, but it does mean that a claimed false-alarm advantage must state the accompanying recovery. Continuous-time FROC curves are preferable to one fixed score because they expose this tradeoff. For deployment, calibration should be checked within the target acquisition system and monitored over nights. A common numerical threshold across different codes is especially difficult to defend because their score distributions need not be comparable.
+
+\subsection{Relation to interactive dreaming}
+
+Interactive-dreaming studies show that some sleepers can receive questions and produce verifiable responses during REM \citep{konkoly2021,turker2023}. Newer approaches broaden the response channel through sniffing, facial-muscle activity, and two-dimensional ocular gestures \citep{konkoly2026,raduga2025,amo2025}. Those studies establish feasibility inside instructed or interpretable response periods. The present benchmark addresses a complementary problem: how often an activation pattern would be detected when no response was requested.
+
+This distinction matters for system architecture. A reliable design can separate a rare activation key from a short command window. Commands inside that window may use a richer but less specific alphabet because the search exposure is limited. The activation key itself must tolerate continuous monitoring. The current results do not validate \texttt{sync8\_c0} for that role, but the analysis provides the negative-corpus half of a reusable validation procedure.
+
+\subsection{Limitations}
+
+The study has five main limitations. First, Sleep-EDF contains spontaneous REM without instructed code production, so there is no human sensitivity estimate. Second, synthetic perturbations represent a limited family of timing, amplitude, transition, and overshoot variation. They are engineering probes, not a model of lucid-dream motor control. Third, the ST cohort is small and gives imprecise participant-clustered intervals. Fourth, the two corpora differ in recording context and participant characteristics, so the transport analysis diagnoses a shift without identifying its cause. Fifth, only one rhythmic code and one matched-duration control were carried through confirmation. A broader, nested code-family study would be needed to estimate how much improvement temporal design can realistically deliver.
+
+\subsection{Next experimental stages}
+
+The next stage should join negative-corpus specificity with prospective human production. Participants should first attempt both codes during waking calibration to measure timing error, comfort, memorability, and detector recovery. During verified lucid REM, code order should be randomized and each instructed opportunity should be independently time-stamped. Primary outcomes should include detected intentional emissions per instructed opportunity, latency, failed attempts, and false activations per REM hour outside response windows. Thresholds and exclusion rules should be frozen before the confirmatory nights.
+
+If ordinary-channel reliability becomes adequate, a later psi-oriented experiment would require a separate design. Targets should be randomized only after the sleeper is isolated from ordinary cues, trial registration should precede target generation, scoring should be blind, and the transmission endpoint should be defined independently of detector tuning. The current recordings cannot test telepathy or anomalous information transfer. They provide infrastructure for establishing that any future claimed message was intentionally emitted and was not a spontaneous REM collision.
 
 \section{Conclusion}
 
-Across two independent Sleep-EDF cohorts, a rhythmic eight-interval ocular code did not produce a reproducible reduction in spontaneous REM collisions when compared with an equal-duration isochronous code at matched synthetic recovery. The main contribution is methodological: portable ocular interfaces require exposure-normalized continuous scanning and equal-sensitivity comparison across corpora. Fixed score thresholds can create a misleading specificity advantage when detector-score distributions shift.
+Across two independent Sleep-EDF cohorts, a rhythmic eight-interval ocular code did not produce a reproducible reduction in spontaneous REM collisions when compared with an equal-duration isochronous code at matched synthetic recovery. The broader contribution is an evaluation framework for asynchronous dream interfaces: continuous scanning, exposure-normalized false activations, matched detector recovery, participant-level inference, and explicit threshold-transport checks. These safeguards are necessary before a code is used for ordinary dream communication and before any more unusual information-transfer claim is considered.
 
 \section*{Data and code availability}
 
