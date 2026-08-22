@@ -2,15 +2,18 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{mathptmx}
-\usepackage[margin=0.72in,columnsep=0.24in]{geometry}
+\usepackage{lmodern}
+\usepackage[letterpaper,margin=0.70in,columnsep=0.24in]{geometry}
 \usepackage{microtype}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{array}
+\usepackage{xcolor}
 \usepackage[numbers,sort&compress]{natbib}
-\usepackage[hidelinks]{hyperref}
+\usepackage[colorlinks=true,allcolors=blue!55!black]{hyperref}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{balance}
 \hypersetup{
   pdftitle={Evaluating Ocular Activation Codes for Asynchronous Communication from REM Sleep},
   pdfauthor={Javier Emilio Bazan Sanchez}
@@ -18,16 +21,18 @@
 
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
 \setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
 \setlength{\floatsep}{7pt plus 2pt minus 2pt}
 \setlength{\intextsep}{7pt plus 2pt minus 2pt}
 \renewcommand{\arraystretch}{1.08}
 
-\title{\vspace{-1.1em}\textbf{Evaluating Ocular Activation Codes for Asynchronous Communication from REM Sleep}\vspace{-0.4em}}
-\author{Javier Emilio Bazan Sanchez\\
+\title{Evaluating Ocular Activation Codes for Asynchronous\\
+Communication from REM Sleep}
+\author{Javier Emilio Baz\'an S\'anchez\\
 \small Facultad de Ciencias, Universidad Nacional Aut\'onoma de M\'exico\\
-\small \href{mailto:bazan@ciencias.unam.mx}{bazan@ciencias.unam.mx}}
-\date{}
+\small \href{mailto:bazan@ciencias.unam.mx}{\texttt{bazan@ciencias.unam.mx}}}
+\date{22 August 2026}
 
 \begin{document}
 \maketitle
@@ -220,6 +225,7 @@ If ordinary-channel reliability becomes adequate, a later psi-oriented experimen
 
 Across two independent Sleep-EDF cohorts, a rhythmic eight-interval ocular code did not produce a reproducible reduction in spontaneous REM collisions when compared with an equal-duration isochronous code at matched synthetic recovery. The broader contribution is an evaluation framework for asynchronous dream interfaces: continuous scanning, exposure-normalized false activations, matched detector recovery, participant-level inference, and explicit threshold-transport checks. These safeguards are necessary before a code is used for ordinary dream communication and before any more unusual information-transfer claim is considered.
 
+\clearpage
 \section*{Data and code availability}
 
 All protocols, manifests, analysis code, machine-readable result tables, and figure sources are available in the \href{https://github.com/asim-v/rem-ocular-code-collision-benchmark}{public GitHub repository}. Sleep-EDF Expanded is available from \href{https://physionet.org/content/sleep-edfx/1.0.0/}{PhysioNet}. Raw physiological files are not redistributed by the repository.
@@ -232,8 +238,9 @@ This computational study reanalyzed deidentified public recordings and did not r
 
 The author declares no competing interests.
 
-\small
-\bibliographystyle{unsrtnat}
+\footnotesize
+\setlength{\bibsep}{1pt}
+\bibliographystyle{plainnat}
 \bibliography{references}
 
 \end{document}

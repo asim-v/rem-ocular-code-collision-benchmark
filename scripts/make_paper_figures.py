@@ -81,7 +81,6 @@ def plot_code_timing() -> None:
         ax.text(4.4, -1.34, "total dwell: 4.4 s", ha="right", va="center", fontsize=8, color="#444444")
     axes[-1].set_xlabel("Time from code onset (s)")
     axes[-1].set_xlim(0, 4.4)
-    fig.suptitle("Equal duration and movement count, different temporal structure", y=1.01, fontsize=11, fontweight="bold")
     fig.tight_layout()
     _save(fig, "code_timing")
 
@@ -150,7 +149,6 @@ def plot_matched_contrasts() -> None:
         ax.set_title(f"{chr(65 + panel_index)}  {panel}", loc="left", fontsize=10)
         ax.set_xlabel("Rhythmic minus isochronous events/h")
         ax.grid(axis="y", visible=False)
-    fig.suptitle("Matched-recovery estimates do not show a stable code advantage", y=1.04, fontsize=11, fontweight="bold")
     fig.tight_layout()
     _save(fig, "matched_contrasts")
 
@@ -233,7 +231,6 @@ def plot_participant_heterogeneity() -> None:
     ax.axhline(0, color="#222222", lw=1.0)
     ax.set_xlabel("")
     ax.set_ylabel("Rhythmic minus isochronous events/h")
-    ax.set_title("Participant-level direction varies within each corpus", loc="left", fontsize=10.5)
     ax.grid(axis="x", visible=False)
     fig.tight_layout()
     _save(fig, "participant_heterogeneity")
@@ -301,9 +298,8 @@ def plot_threshold_transport() -> None:
     axes[0].set_ylim(0, 19)
     axes[1].set_ylim(92.5, 97.0)
     handles, labels = axes[0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="upper center", ncol=2, frameon=False, bbox_to_anchor=(0.5, 1.02))
-    fig.suptitle("Transported thresholds change both sensitivity and apparent specificity", y=1.12, fontsize=11, fontweight="bold")
-    fig.tight_layout()
+    fig.legend(handles, labels, loc="upper center", ncol=2, frameon=False, bbox_to_anchor=(0.5, 1.01))
+    fig.tight_layout(rect=(0, 0, 1, 0.91))
     _save(fig, "threshold_transport")
 
 
